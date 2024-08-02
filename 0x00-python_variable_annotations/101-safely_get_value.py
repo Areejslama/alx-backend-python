@@ -6,11 +6,11 @@ T = TypeVar('T')
 
 
 def safely_get_value(
-        """define function"""
         dct: Mapping,
         key: Any,
         default: Optional[T]
         ) -> Union[Any, T]:
+    """define function"""
     if key in dct:
         return dct[key]
     else:
