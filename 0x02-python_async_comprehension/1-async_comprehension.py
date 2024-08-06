@@ -2,8 +2,6 @@
 """This module provides an asynchronous list comprehension"""
 
 from typing import List
-from asyncio import sleep
-from random import uniform
 
 async_generator = __import__('0-async_generator').async_generator
 
