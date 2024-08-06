@@ -2,9 +2,9 @@
 """this script define a function"""
 import asyncio
 import random
+from typing import Generator
 
-
-async def async_generator():
+async def async_generator() -> Generator[None, None, None]:
     """define the function"""
 
     delay = random.uniform(0, 10)
