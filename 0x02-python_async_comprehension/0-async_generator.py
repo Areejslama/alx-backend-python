@@ -9,7 +9,7 @@ async def async_generator() -> Generator[float, None, None]:
     """define the function"""
     await asyncio.sleep(1)
 
-    delay = random.uniform(0, 10)
+    delay = random.random()
 
     for i in range(10):
 
