@@ -5,12 +5,11 @@ import random
 from typing import Generator
 
 
-async def async_generator() -> Generator[int, None, None]:
+async def async_generator() -> Generator[float, None, None]:
     """define the function"""
+    await asyncio.sleep(1)
 
     delay = random.uniform(0, 10)
-
-    await asyncio.sleep(1)
 
     for i in range(10):
 
