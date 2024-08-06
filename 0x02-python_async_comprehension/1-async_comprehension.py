@@ -7,4 +7,4 @@ async_generator = using('0-async_generator').async_generator
 
 async def async_comprehension() -> List[float]:
     """define the function"""
-    return [number async for number in async_generator()]
+    return [num async for num in async_generator()]
