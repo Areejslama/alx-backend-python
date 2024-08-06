@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """this script define a function"""
-from asyncio import sleep
-from random import uniform
+import asyncio
+import random
 from typing import Generator
 
 
 async def async_generator() -> Generator[float, None, None]:
     """define the function"""
     for _ in range(10):
-        await sleep(1)
+        await asyncio.sleep(1)
 
-        yield uniform(0, 10)
+        yield random.uniform(0, 10)
