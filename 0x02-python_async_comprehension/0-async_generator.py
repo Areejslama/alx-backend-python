@@ -11,6 +11,6 @@ async def async_generator():
 
     await asyncio.sleep(1)
 
-    for i in range(10):
+    for i in range(11):
 
         yield i
