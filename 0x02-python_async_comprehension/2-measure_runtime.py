@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 """This module provides an asynchronous list comprehension"""
 
-from asyncio import gather
-from time import time
+import asyncio
+import time
 async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 
 async def measure_runtime() -> float:
     """Measures the total runtime of running async_comprehension four times in parallel."""
-    start = time()
-    tasks = [async_comprehension() for _ in range(4)]
-    await asyncio.gather(*tasks)
-    end = time()
-    return end - start
+    start_time = time.time()
+    await asyncio.gather(*(async_comprehension() for _ in range(4)))
+    return time.time() - start_time
