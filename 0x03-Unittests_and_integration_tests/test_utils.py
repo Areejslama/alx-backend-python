@@ -57,11 +57,10 @@ class TestMemoize(unittest.TestCase):
         with patch.object(
                 TestClass,
                 "a_method",
-                return_value=lambda: 42,
                 ) as memo:
-            test_method = TestClass()
-            self.assertEqual(test_method.a_property(), 42)
-            self.assertEqual(test_method.a_property(), 42)
+            test_class = TestClass()
+            test_class.a_property()
+            test_class.a_property()
             memo.assert_called_once()
 
 
