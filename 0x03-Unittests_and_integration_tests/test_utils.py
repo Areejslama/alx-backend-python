@@ -24,7 +24,7 @@ class TestAccessNestedMap(unittest.TestCase):
         def test_access_nested_map_exception(
                 self, nested_map, mapping, expected):
             """test exception"""
-            with self.assertRaises(expected):
+            with self.assertRaises(expected) as cm:
                 access_nested_map(nested_map, mapping)
 
 
