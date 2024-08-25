@@ -26,7 +26,7 @@ class TestAccessNestedMap(unittest.TestCase):
         ):
             """Test that an exception is raised"""
             with self.assertRaises(KeyError):
-                access_nested_map(nested_map, mapping)
+                access_nested_map(nested_map, key)
 
 
 if __name__ == "__main__":
