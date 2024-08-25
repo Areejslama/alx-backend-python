@@ -45,7 +45,6 @@ class TestGetJson(unittest.TestCase):
 
 class TestMemoize(unittest.TestCase):
     """Test the memoize decorator."""
-
     def test_memoize(self):
         """Test that memoization works as expected."""
         class TestClass:
@@ -55,15 +54,14 @@ class TestMemoize(unittest.TestCase):
             @memoize
             def a_property(self):
                 return self.a_method()
-
         with patch.object(
                 TestClass,
                 'a_method',
                 return_value=lambda: 42,
                 ) as memo:
-            instance = TestClass()
-            self.assertEqual(instance.a_property(), 42)
-            self.assertEqual(instance.a_property(), 42)
+            test = TestClass()
+            self.assertEqual(test.a_property(), 42)
+            self.assertEqual(test.a_property(), 42)
             memo.assert_called_once()
 
 
