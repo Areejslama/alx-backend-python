@@ -2,7 +2,7 @@
 """define test case"""
 import unittest
 from parameterized import parameterized
-from utils import access_nested_map, get_json, memoize
+from utils import (access_nested_map, get_json, memoize)
 from unittest.mock import patch, Mock
 
 
@@ -45,13 +45,11 @@ class TestGetJson(unittest.TestCase):
 
 class TestMemoize(unittest.TestCase):
     """ Class for Testing Memoize """
-
     def test_memoize(self):
-        """Test"""
+        """Test memoize"""
 
         class TestClass:
             """Test Class"""
-
             def a_method(self):
                 return 42
 
