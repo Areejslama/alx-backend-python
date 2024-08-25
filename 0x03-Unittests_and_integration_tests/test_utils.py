@@ -32,15 +32,14 @@ class TestAccessNestedMap(unittest.TestCase):
 
 class TestGetJson(unittest.TestCase):
     """define class"""
-
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False}),
         ])
-    def TestGetJson(self, test_url, test_payload):
+    def test_get_json(self, test_url, test_payload):
         json = {'json.return_value': test_payload}
         with patch('requests.get', return_value=Mock(**json)) as request:
-            self.assertEqual(get_json(url), test_payload)
+            self.assertEqual(get_json(test_url), test_payload)
             request.assert_called_once_with(test_url)
 
 
