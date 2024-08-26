@@ -31,3 +31,19 @@ class TestGithubOrgClient(unittest.TestCase):
             test_class = GithubOrgClient('test')
             result = test_class._public_repos_url
             self.assertEqual(result, payload)
+
+    @patch('client.get_json')
+    def test_public_repos(self, value):
+        """define function"""
+        json = [{"name": "Hello"}, {"name": "summer"}]
+        value.return_value = json
+
+        with patch(
+                'client.GithubOrgClient._public_repos_url',
+                new_callable=PropertyMock
+                ) as mock:
+            value = [{"name": "mickey"}, {"name": "mouse"}]
+            mock.return_value = value
+            test_repos = GithubOrgClient(value)
+            result = GithubOrgClient._public_repos_url
+            self.assertEqual(result, value)
