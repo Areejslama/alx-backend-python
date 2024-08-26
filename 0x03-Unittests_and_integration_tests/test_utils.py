@@ -2,9 +2,9 @@
 """define test case"""
 import unittest
 from parameterized import parameterized
-from utils import (access_nested_map, get_json, memoize)
+from utils import access_nested_map, get_json, memoize
+from unittest.mock import Mock
 from unittest.mock import patch, Mock
-import json
 
 
 class TestAccessNestedMap(unittest.TestCase):
