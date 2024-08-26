@@ -33,19 +33,22 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(result, payload)
 
     @patch('client.get_json')
-    def test_public_repos(self, value):
-        """define function"""
-        json = [{"name": "Hello"}, {"name": "summer"}]
-        value.return_value = json
+    def test_public_repos(self, mock_json):
+        """
+        Test that the list of repos is what you expect from the chosen payload.
+        """
+        json = [{"name": "Hello"}, {"name": "Summer"}]
+        mock_json.return_value = json
 
-        with patch(
-                'client.GithubOrgClient._public_repos_url',
-                new_callable=PropertyMock
-                ) as mock:
-            mock.return_value = "Hello/brother"
-            test_repos = GithubOrgClient('test')
-            result = test_repos.public_repos()
+        with patch('client.GithubOrgClient._public_repos_url',
+                   new_callable=PropertyMock) as mock_public:
+
+            mock_public.return_value = "hello/brother"
+            test_class = GithubOrgClient('test')
+            result = test_class.public_repos()
+
             check = [i["name"] for i in json]
             self.assertEqual(result, check)
-            value.assert_called_once()
-            mock.assert_called_once()
+
+            mock_public.assert_called_once()
+            mock_json.assert_called_once()
