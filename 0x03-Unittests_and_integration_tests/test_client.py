@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """this script to test methods"""
 import unittest
-from unittest.mock import patch, Mock, PropertyMock
 from client import GithubOrgClient
-from test_utils import TestGetJson
 from parameterized import parameterized
+import json
+from unittest.mock import patch, PropertyMock, Mock
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -42,7 +42,7 @@ class TestGithubOrgClient(unittest.TestCase):
                 'client.GithubOrgClient._public_repos_url',
                 new_callable=PropertyMock
                 )as mock:
-            mock.return_value = "hello/brother"
+            mock.return_value = "hello/world"
             test_class = GithubOrgClient('test')
             result = test_class.public_repos()
 
