@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """define test case"""
 import unittest
-from parameterized import parameterized
-from utils import access_nested_map, get_json, memoize
 from unittest.mock import Mock
-from unittest.mock import patch, Mock
+from parameterized import parameterized
+from unittest.mock import Mock, patch
+from utils import access_nested_map, get_json, memoize
 
 
 class TestAccessNestedMap(unittest.TestCase):
