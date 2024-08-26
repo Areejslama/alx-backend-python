@@ -34,15 +34,14 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @patch('client.get_json')
     def test_public_repos(self, mock_json):
-        """
-        Test that the list of repos is what you expect from the chosen payload.
-        """
+        """Test that the list of repos"""
         json = [{"name": "Hello"}, {"name": "Summer"}]
         mock_json.return_value = json
 
-        with patch('client.GithubOrgClient._public_repos_url',
-                   new_callable=PropertyMock) as mock_public:
-
+        with patch(
+                'client.GithubOrgClient._public_repos_url',
+                new_callable=PropertyMock
+                )as mock_public:
             mock_public.return_value = "hello/brother"
             test_class = GithubOrgClient('test')
             result = test_class.public_repos()
