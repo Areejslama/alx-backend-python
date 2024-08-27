@@ -3,8 +3,9 @@
 import unittest
 from utils import access_nested_map, get_json, memoize
 from unittest.mock import Mock
+from unittest.mock import patch, Mock
 from parameterized import parameterized
-from unittest.mock import patch
+
 
 class TestAccessNestedMap(unittest.TestCase):
     """define class"""
